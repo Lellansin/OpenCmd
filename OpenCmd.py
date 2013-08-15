@@ -8,6 +8,9 @@ class OpenCmdCommand(sublime_plugin.TextCommand):
 		cwd = os.getcwd();
 		path = self.view.file_name();
 		platform = sublime.platform();
+
+		if path is None:
+			sublime.message_dialog("There is no path to open, please save the file first!");		
 		
 		if(platform == 'windows'):
 			# get file directory
